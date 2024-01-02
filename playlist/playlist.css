@@ -1,0 +1,49 @@
+.playlist::-webkit-scrollbar {
+width: 0; 
+}
+
+.playlist::-webkit-scrollbar-thumb {
+background-color: transparent; 
+}
+
+.playlist-video-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+    margin: 5px 0px;
+}
+
+.video-details {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 0 2px;
+    font-size: 0.9rem;
+    color: #7b7c7d;
+    align-items: center;
+}
+
+.playlist-video {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video-duration {
+    margin: auto;
+    font-weight: bold;
+    color: #3a3a3a;
+}
+
+.playlist{
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    height: 100%;
+    border: 2px solid black;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+    
+}

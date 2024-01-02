@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="file-upload/file-upload.css">
+    <link rel="stylesheet" href="playlist/playlist.css">
+</head>
+<body>
+    <div class="header">
+        <div id="dragzone" onclick="fileInput.click()">
+            Drag and Drop to Upload Files
+        </div>
+        
+        <input type="file" id="fileInput" multiple accept="video/*">
+        
+    </div>
+    <div class="container">
+        <div class="player">
+            <video src="" id="main-player" controls autoplay ></video>
+        </div>
+        <div class="playlist">
+            
+        </div>
+    </div>
+    
+<script src="playlist/playlist.js"></script>
+<script src="file-upload/file-upload.js"></script>
+<script src="player/player.js"></script>
+</body>
+</html>
