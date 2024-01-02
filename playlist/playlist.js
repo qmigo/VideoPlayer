@@ -35,6 +35,7 @@ function createPlaylist(files) {
             videoDuration.textContent = readableDuration(durationInSeconds);
             videoDetails.append(videoDuration);
             
+            
         });
 
         playlistVideoContainer.append(video);
@@ -46,7 +47,8 @@ function createPlaylist(files) {
             currPlayingVideo = playlistVideoContainer;
         })
 
-        playlistVideoContainer.addEventListener('contextmenu', ()=>{
+        playlistVideoContainer.addEventListener('contextmenu', (e)=>{
+            e.preventDefault();
             playlistVideoContainer.remove();
         })
         playlist.append(playlistVideoContainer);
