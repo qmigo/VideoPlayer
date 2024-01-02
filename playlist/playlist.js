@@ -1,3 +1,5 @@
+var currPlayingVideo;
+
 function readableDuration (durationInSeconds) {
     const hours = Math.floor(durationInSeconds / 3600);
     const minutes = Math.floor((durationInSeconds % 3600) / 60);
@@ -33,8 +35,7 @@ function createPlaylist(files) {
             videoDuration.textContent = readableDuration(durationInSeconds);
             videoDetails.append(videoDuration);
             
-          });
-
+        });
 
         playlistVideoContainer.append(video);
         playlistVideoContainer.append(videoDetails);
@@ -42,6 +43,7 @@ function createPlaylist(files) {
         playlistVideoContainer.addEventListener('click', ()=>{
             const mainVideoPlayer = document.querySelector('#main-player');
             mainVideoPlayer.src = videoURL;
+            currPlayingVideo = playlistVideoContainer;
         })
 
         playlistVideoContainer.addEventListener('contextmenu', ()=>{
