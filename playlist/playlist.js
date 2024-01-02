@@ -30,8 +30,6 @@ function createPlaylist(files) {
         video.addEventListener("loadedmetadata", function() {
            
             const durationInSeconds = video.duration;
-
-            console.log(durationInSeconds)
             videoDuration.textContent = readableDuration(durationInSeconds);
             videoDetails.append(videoDuration);
             

@@ -1,13 +1,28 @@
 document.addEventListener('keydown', function(event) {
+  const video = document.querySelector("#main-player")
+  const factor = 10;
+
   switch(event.code) {
     case 'ArrowRight':
       if (!video.seeking) {
-        video.currentTime += 10;
+        video.pause();
+        video.currentTime += factor;
+        video.play();
+      }
+      else {
+        video.pause();
+        video.currentTime += factor;
       }
       break;
     case 'ArrowLeft':
       if (!video.seeking) {
-        video.currentTime -= 10;
+        video.pause();
+        video.currentTime -= factor;
+        video.play();
+      }
+      else {
+        video.pause();
+        video.currentTime -= factor;
       }
       break;
     case "KeyN": 
@@ -30,13 +45,11 @@ const video = document.querySelector("#main-player")
 
 video.addEventListener("loadedmetadata", ()=> {
   const defaultSpeed = localStorage.getItem("local-player-speed") || 1;
-  console.log(defaultSpeed)
   video.playbackRate = defaultSpeed;
 
 })
 
 video.addEventListener('ended', ()=>{
-  console.log("Video ended");
   markCompletedVideo(currPlayingVideo);
   if(currPlayingVideo)
   playNext(currPlayingVideo);
@@ -46,7 +59,6 @@ function markCompletedVideo(currVideo) {
   const videoArray = document.querySelector(".playlist").childNodes;
   for(let i=1;i<videoArray.length;i++) {
     if(currVideo === videoArray[i]) {
-      console.log(currVideo);
       currVideo.classList += " completed-video";
       break;
     }
