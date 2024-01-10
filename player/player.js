@@ -1,29 +1,23 @@
+var wasVideoPaued = false;
+
+function moveVideoFrame(video, factor) {
+  wasVideoPaued = video.paused;
+      video.pause();
+      video.currentTime += factor;
+      if(!wasVideoPaued)
+      video.play();
+}
+
 document.addEventListener('keydown', function(event) {
   const video = document.querySelector("#main-player")
   const factor = 10;
-
   switch(event.code) {
+
     case 'ArrowRight':
-      if (!video.seeking) {
-        video.pause();
-        video.currentTime += factor;
-        video.play();
-      }
-      else {
-        video.pause();
-        video.currentTime += factor;
-      }
+      moveVideoFrame(video, factor);
       break;
     case 'ArrowLeft':
-      if (!video.seeking) {
-        video.pause();
-        video.currentTime -= factor;
-        video.play();
-      }
-      else {
-        video.pause();
-        video.currentTime -= factor;
-      }
+      moveVideoFrame(video, -1*factor);
       break;
     case "KeyN": 
       playNext(currPlayingVideo);
